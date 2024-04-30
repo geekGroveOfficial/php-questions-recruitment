@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+.body {
+  background-image: url(../img/Texture2.png);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  background-attachment: local;
+}
+
+html {
+
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: med;
+  font-style: normal;
+  font-weight: 500;
+  src: url("font/Peyda-Medium.ttf");
+}
+
+@font-face {
+  font-family: bol;
+  font-style: normal;
+  font-weight: 700;
+  src: url("font/Peyda-Bold.ttf");
+}
+
+@font-face {
+  font-family: reg;
+  font-style: normal;
+  font-weight: 400;
+  src: url("font/Peyda-Regular.ttf");
+}
+
+@font-face {
+  font-family: semibol;
+  font-style: normal;
+  font-weight: 600;
+  src: url("font/Peyda-SemiBold.ttf");
+}
