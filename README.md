@@ -1,2 +1,2 @@
 # php-questions-recruitment
-80 php questions for recruitment
+php questions for recruitment
