@@ -1,44 +1,396 @@
 @tailwind base;
-@tailwind utilities;
 @tailwind components;
+@tailwind utilities;
 
-.body {
-  background-image: url(../img/Texture2.png);
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: cover;
-  background-attachment: local;
+@font-face {
+  font-family: "Peyda";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200;
+  src: url("./font/Peyda-ExtraLight.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Peyda";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300;
+  src: url("./font/Peyda-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Peyda";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url("./font/Peyda-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Peyda";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url("./font/Peyda-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Peyda";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url("./font/Peyda-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Peyda";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url("./font/Peyda-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Peyda";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 800;
+  src: url("./font/Peyda-ExtraBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Peyda";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url("./font/Peyda-Black.ttf") format("truetype");
+}
+
+:root {
+  color-scheme: light;
+  --page-bg: #f7efe4;
+  --page-bg-soft: #fbf7f2;
+  --page-ink: #17232a;
+  --page-line: rgba(23, 35, 42, 0.08);
+  --surface: rgba(255, 255, 255, 0.72);
 }
 
 html {
-
   scroll-behavior: smooth;
 }
 
-@font-face {
-  font-family: med;
-  font-style: normal;
-  font-weight: 500;
-  src: url("font/Peyda-Medium.ttf");
+body {
+  min-height: 100vh;
+  font-family: "Peyda", ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "ss01" on;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--page-ink);
+  background:
+    radial-gradient(circle at top right, rgba(245, 158, 11, 0.18), transparent 24rem),
+    radial-gradient(circle at 15% 20%, rgba(13, 148, 136, 0.14), transparent 22rem),
+    linear-gradient(180deg, var(--page-bg) 0%, var(--page-bg-soft) 48%, #f1e3d4 100%);
 }
 
-@font-face {
-  font-family: bol;
-  font-style: normal;
-  font-weight: 700;
-  src: url("font/Peyda-Bold.ttf");
+body,
+button,
+input,
+select,
+textarea {
+  font-family: "Peyda", ui-sans-serif, system-ui, sans-serif;
 }
 
-@font-face {
-  font-family: reg;
-  font-style: normal;
-  font-weight: 400;
-  src: url("font/Peyda-Regular.ttf");
+::selection {
+  background: rgba(13, 148, 136, 0.18);
+  color: var(--page-ink);
 }
 
-@font-face {
-  font-family: semibol;
-  font-style: normal;
+code {
+  direction: ltr;
+  unicode-bidi: embed;
+}
+
+.glass-surface {
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: var(--surface);
+  box-shadow: 0 24px 70px -38px rgba(23, 35, 42, 0.38);
+  backdrop-filter: blur(18px);
+}
+
+.section-shell {
+  border: 1px solid var(--page-line);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.66);
+  box-shadow: 0 18px 50px -38px rgba(23, 35, 42, 0.45);
+  backdrop-filter: blur(14px);
+  padding: 1.5rem;
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(180, 83, 9, 0.15);
+  border-radius: 9999px;
+  background: rgba(255, 251, 235, 0.86);
+  color: #92400e;
+  font-size: 0.8rem;
   font-weight: 600;
-  src: url("font/Peyda-SemiBold.ttf");
+  padding: 0.45rem 0.85rem;
+}
+
+.nav-pill {
+  border: 1px solid rgba(23, 35, 42, 0.1);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.8);
+  color: #334155;
+  font-size: 0.95rem;
+  padding: 0.7rem 1rem;
+  transition: transform 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.nav-pill:hover {
+  border-color: rgba(15, 118, 110, 0.25);
+  color: #0f766e;
+  transform: translateY(-2px);
+}
+
+.stat-card {
+  border: 1px solid rgba(23, 35, 42, 0.08);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.84);
+  padding: 1.1rem 1.2rem;
+  box-shadow: 0 14px 36px -34px rgba(23, 35, 42, 0.5);
+}
+
+.qa-card {
+  border: 1px solid rgba(23, 35, 42, 0.08);
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.88);
+  padding: 1.3rem;
+  box-shadow: 0 16px 46px -34px rgba(23, 35, 42, 0.34);
+}
+
+.qa-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 1rem;
+  background: #17232a;
+  color: #fff;
+  font-size: 0.92rem;
+  font-weight: 700;
+  box-shadow: 0 16px 26px -18px rgba(23, 35, 42, 0.65);
+}
+
+.qa-category {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(13, 148, 136, 0.14);
+  border-radius: 9999px;
+  background: rgba(240, 253, 250, 0.9);
+  color: #115e59;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.45rem 0.85rem;
+}
+
+.qa-question {
+  margin-top: 1.25rem;
+  color: #0f172a;
+  font-size: 1.24rem;
+  font-weight: 800;
+  line-height: 2.1rem;
+}
+
+.answer {
+  margin-top: 1rem;
+  color: #475569;
+  display: grid;
+  gap: 0.95rem;
+  font-size: 0.97rem;
+  line-height: 2rem;
+}
+
+.answer-list {
+  list-style: disc;
+  padding-right: 1.15rem;
+}
+
+.answer-list li::marker {
+  color: #0f766e;
+}
+
+.note {
+  margin-top: 1.15rem;
+  border: 1px solid rgba(13, 148, 136, 0.12);
+  border-radius: 1rem;
+  background: rgba(240, 253, 250, 0.9);
+  color: #134e4a;
+  font-size: 0.9rem;
+  line-height: 1.9rem;
+  padding: 0.9rem 1rem;
+}
+
+.loading-shell,
+.error-shell {
+  border: 1px solid var(--page-line);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 18px 50px -38px rgba(23, 35, 42, 0.45);
+  backdrop-filter: blur(14px);
+  padding: 1.5rem;
+}
+
+.status-title {
+  margin-top: 1rem;
+  color: #0f172a;
+  font-size: 1.6rem;
+  font-weight: 900;
+  line-height: 2.5rem;
+}
+
+.status-text {
+  margin-top: 0.9rem;
+  color: #475569;
+  font-size: 0.97rem;
+  line-height: 2rem;
+}
+
+.contact-layout {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.contact-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-card {
+  border: 1px solid rgba(23, 35, 42, 0.08);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 16px 46px -34px rgba(23, 35, 42, 0.34);
+  padding: 1.2rem;
+}
+
+.contact-link {
+  display: block;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.contact-link:hover {
+  border-color: rgba(15, 118, 110, 0.25);
+  box-shadow: 0 22px 46px -34px rgba(13, 148, 136, 0.38);
+  transform: translateY(-2px);
+}
+
+.contact-label {
+  color: #64748b;
+  display: block;
+  font-size: 0.84rem;
+}
+
+.contact-value {
+  color: #0f172a;
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1.8rem;
+  margin-top: 0.55rem;
+}
+
+.contact-form-shell {
+  border: 1px solid rgba(23, 35, 42, 0.08);
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 16px 46px -34px rgba(23, 35, 42, 0.34);
+  padding: 1.3rem;
+}
+
+.field-label {
+  color: #334155;
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.field-input,
+.field-textarea {
+  appearance: none;
+  background: rgba(248, 250, 252, 0.95);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 18px;
+  color: #0f172a;
+  display: block;
+  margin-top: 0.55rem;
+  outline: none;
+  padding: 0.95rem 1rem;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+  width: 100%;
+}
+
+.field-input:focus,
+.field-textarea:focus {
+  background: #fff;
+  border-color: rgba(13, 148, 136, 0.36);
+  box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.08);
+}
+
+.field-textarea {
+  min-height: 10rem;
+  resize: vertical;
+}
+
+.submit-button,
+.jump-link {
+  align-items: center;
+  background: #17232a;
+  border-radius: 9999px;
+  color: #fff;
+  display: inline-flex;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.85rem 1.4rem;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.submit-button:hover,
+.jump-link:hover {
+  background: #0f766e;
+  box-shadow: 0 18px 34px -20px rgba(15, 118, 110, 0.55);
+  transform: translateY(-1px);
+}
+
+.helper-text {
+  color: #64748b;
+  font-size: 0.88rem;
+  line-height: 1.8rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+  .section-shell {
+    padding: 2rem;
+  }
+
+  .qa-card {
+    padding: 1.5rem;
+  }
+
+  .loading-shell,
+  .error-shell,
+  .contact-form-shell {
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-layout {
+    grid-template-columns: 0.92fr 1.08fr;
+    align-items: start;
+  }
 }

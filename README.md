@@ -1,25 +1,32 @@
-# PHP Recruitment Questions
+# PHP Interview Questions Recruitment
 
-This project is a collection of PHP questions commonly used in recruitment processes. It aims to help both candidates preparing for PHP interviews and interviewers looking for relevant questions to ask.
+A JSON-driven static page of PHP interview questions in Persian, written for quick review before a technical interview.
+
+## Content source
+
+All page content now lives in `src/content.json`:
+
+- hero text and stats
+- interview sections and questions
+- answers, notes, and wide cards
+- contact section
+- footer copy
+
+To add or edit questions, update the JSON file and refresh the page.
+
+## Local development
+
+Because the page reads data from a JSON file, open it through a local server instead of `file://`.
+
+1. Install dependencies with `npm install`
+2. Run `npm run dev` to rebuild Tailwind during edits
+3. Start a simple server, for example: `python3 -m http.server 4173`
+4. Open `http://localhost:4173`
+
+## Build
+
+Run `npm run build` to regenerate `src/output.css`.
 
 ## Demo
 
-Check out the [demo](https://geekgroveofficial.github.io/php-questions-recruitment/) for a preview of the project.
-
-## Features
-
-- Questions categorized by topics.
-- Clear explanations and examples for each question.
-- Easy navigation through different sections.
-
-## Getting Started
-
-To get a local copy up and running, follow these steps:
-
-1. Clone the repository: `git clone https://github.com/geekgroveofficial/php-questions-recruitment.git`
-2. Navigate into the project directory: `cd php-questions-recruitment`
-3. Open the `index.html` file in your browser.
-
-## Contributing
-
-Contributions are welcome! If you'd like to add new questions or improve existing ones, feel free to submit a pull request.
+https://geekgroveofficial.github.io/php-questions-recruitment/
